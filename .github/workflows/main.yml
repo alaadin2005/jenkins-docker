@@ -2,7 +2,7 @@ name: Build & Push All Services
 
 on:
   push:
-    branches: [ "Master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        service: [jenkins+docker]
+        service: [jenkins-docker]
 
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
