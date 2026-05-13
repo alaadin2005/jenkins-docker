@@ -97,7 +97,7 @@ metadata:
   name: jenkins-service
   namespace: jenkins
 spec:
-  type: NodePort
+  type: loadBalancer
   selector:
     app: jenkins
 
