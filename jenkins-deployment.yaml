@@ -60,7 +60,7 @@ spec:
 
       containers:
       - name: jenkins
-        image: alaadin2005/jenkins-docker:latest
+        image: alaadin2005/jenkins-jenkins-docker:latest
         imagePullPolicy: Always
 
         ports:
@@ -97,7 +97,7 @@ metadata:
   name: jenkins-service
   namespace: jenkins
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: jenkins
 
