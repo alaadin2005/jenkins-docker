@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        service: [app]
+        service: [jenkins+docker]
 
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -28,8 +28,8 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v5
         with:
-          context: ./Docker-files/${{ matrix.service }}
+          context: ./${{ matrix.service }}
           push: true
           tags: |
-            ${{ env.DOCKERHUB_USERNAME }}/vprofile-${{ matrix.service }}:latest
-            ${{ env.DOCKERHUB_USERNAME }}/vprofile-${{ matrix.service }}:${{ github.sha }}
+            ${{ env.DOCKERHUB_USERNAME }}/jenkins-${{ matrix.service }}:latest
+            ${{ env.DOCKERHUB_USERNAME }}/jenkins-${{ matrix.service }}:${{ github.sha }}
