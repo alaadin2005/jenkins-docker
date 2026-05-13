@@ -28,7 +28,7 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./Docker-files/${{ matrix.service }}
           push: true
           tags: |
             ${{ env.DOCKERHUB_USERNAME }}/jenkins-${{ matrix.service }}:latest
